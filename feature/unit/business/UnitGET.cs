@@ -11,6 +11,11 @@ namespace clean_sharp {
             this.repo = repo;
         }
 
+        public override bool guard(string param)
+        {
+            return param != null
+        }
+
         public override Output<UnitPokemon> execute(string param)
         {
             var fetch = repo.doFetch();

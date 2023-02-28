@@ -11,10 +11,9 @@ namespace clean_sharp
             this.get = get;
         }
 
-        public List<UnitPokemon> doFetch()
+        public UnitPokemon doFetch()
         {
-            
-            throw new System.NotImplementedException();
+            return processUseCase("bulbasaur", get)?.value;
         }
     }
 }

@@ -5,7 +5,7 @@ namespace clean_sharp
 {
     class SequencePresenterImpl : BaseController, SequencePresenter
     {
-        SequenceGETBulbasaur getBulbasaur {get;set;}
+       SequenceGETBulbasaur getBulbasaur {get;set;}
        SequenceGETIvysaur getIvysaur {get;set;}
        SequenceGETVenusaur getVenusaur {get;set;}
         public SequencePresenterImpl(SequenceGETBulbasaur getBulbasaur, SequenceGETIvysaur getIvysaur, SequenceGETVenusaur getVenusaur){
@@ -16,7 +16,14 @@ namespace clean_sharp
 
         public List<SequencePokemon> doFetch()
         {
-            throw new System.NotImplementedException();
+       
+            var sequence = SequenceUseCase.Builder()
+            .add(getBulbasaur)
+            .add(getIvysaur)
+            .add(getVenusaur)
+            .build();
+       
+            return processUseCase(null, sequence)?.value;
         }
     }
 }
