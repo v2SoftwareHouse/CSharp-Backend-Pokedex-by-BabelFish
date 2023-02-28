@@ -10,13 +10,14 @@ namespace clean_sharp.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : BaseController
+    public class ChainController : BaseController
     {
-        private readonly Lazy<LandingUseCase> fetcher = new Lazy<LandingUseCase>(() => LandingGatewayInjector.Self.fetch);
+        private readonly Lazy<ChainUseCase> fetcher = new Lazy<ChainUseCase>(() => ChainGatewayInjector.Self.fetch);
         
-        public Landing doFetch(string name)
+        public Chain doFetch(string name)
         {
-            return processUseCase<string, Landing>(name, LandingGatewayInjector.Self.fetch).value;
+            var chainUseCase
+            return processUseCase<string, Chain>(name, ChainGatewayInjector.Self.fetch).value;
         }
 
         [HttpGet]

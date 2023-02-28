@@ -8,7 +8,11 @@ namespace clean_sharp
 
         public static void Main(string[] args)
         {
+            Unnit.Self.fetch = new LandingUseCase(new LandingRepositoryImpl());
             LandingGatewayInjector.Self.fetch = new LandingUseCase(new LandingRepositoryImpl());
+            ChainGatewayInjector.Self.fetch = new ChainUseCase(new ChainRepositoryImpl());
+            SequenceGatewayInjector.Self.fetch = new SequenceUseCase(new SequenceRepositoryImpl());
+    
             CreateHostBuilder(args).Build().Run();
         }
 
